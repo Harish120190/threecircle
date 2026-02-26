@@ -6,20 +6,30 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   template: `
-    <section class="py-24 bg-white">
-      <div class="container mx-auto px-4 md:px-8">
+    <section class="py-24 bg-slate-900 text-white relative overflow-hidden">
+      <!-- Decorative background -->
+       <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+       <div class="absolute bottom-0 left-0 w-[600px] h-[600px] bg-orange-500/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/4"></div>
+
+      <div class="container mx-auto px-4 md:px-8 relative z-10">
         <!-- Section Header -->
          <div class="mb-16 text-center max-w-3xl mx-auto">
-            <h4 class="text-primary font-bold uppercase tracking-widest text-sm mb-3">Industries We Serve</h4>
-            <h2 class="text-4xl font-bold text-slate-900 mb-6">Domain Expertise</h2>
-            <p class="text-slate-600 text-lg">
+            <div class="flex items-center justify-center gap-3 mb-4">
+               <div class="w-12 h-1 bg-gradient-to-r from-primary to-orange-500 rounded-full"></div>
+               <span class="font-bold uppercase tracking-[0.2em] text-sm text-primary">Industries We Serve</span>
+               <div class="w-12 h-1 bg-gradient-to-l from-primary to-orange-500 rounded-full"></div>
+            </div>
+            <h2 class="text-4xl md:text-5xl font-bold mb-6 font-heading">
+              Domain <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-orange-500">Expertise</span>
+            </h2>
+            <p class="text-slate-300 text-lg">
               We bring deep sector knowledge and specialized recruitment strategies to a diverse range of industries.
             </p>
          </div>
 
          <!-- Image Grid -->
-         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            <div *ngFor="let industry of industries" class="group relative h-80 overflow-hidden cursor-pointer rounded-lg">
+         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div *ngFor="let industry of industries" class="group relative h-80 overflow-hidden cursor-pointer rounded-2xl shadow-lg border border-white/10 hover:border-primary/50 transition-colors duration-500">
                <!-- Background Image -->
                <img 
                  [src]="industry.image" 
@@ -28,17 +38,17 @@ import { CommonModule } from '@angular/common';
                />
                
                <!-- Gradient Overlay -->
-               <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300"></div>
+               <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/80 to-slate-900/20 opacity-90 group-hover:opacity-100 transition-opacity duration-300"></div>
 
                <!-- Content -->
-               <div class="absolute inset-0 p-8 flex flex-col justify-end">
-                  <div class="transform transition-transform duration-500 translate-y-4 group-hover:translate-y-0">
-                    <div class="text-primary text-3xl mb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 transform -translate-y-4 group-hover:translate-y-0">
+               <div class="absolute inset-0 p-8 flex flex-col justify-end z-10">
+                  <div class="transform transition-transform duration-500 translate-y-6 group-hover:translate-y-0">
+                    <div class="w-14 h-14 rounded-xl bg-white/10 backdrop-blur-md flex items-center justify-center text-primary text-2xl mb-4 border border-white/20 group-hover:bg-gradient-to-br group-hover:from-primary group-hover:to-orange-500 group-hover:text-white group-hover:border-transparent transition-all duration-500">
                       <i [class]="industry.icon"></i>
                     </div>
-                    <h3 class="text-2xl font-bold text-white mb-2">{{ industry.name }}</h3>
-                    <div class="h-0.5 w-12 bg-primary mb-4 transition-all duration-300 group-hover:w-20"></div>
-                    <p class="text-slate-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200 h-0 group-hover:h-auto overflow-hidden">
+                    <h3 class="text-2xl font-bold text-white mb-2 font-heading">{{ industry.name }}</h3>
+                    <div class="h-1 w-12 bg-gradient-to-r from-primary to-orange-500 mb-4 transition-all duration-500 group-hover:w-full rounded-full"></div>
+                    <p class="text-slate-300 text-sm opacity-0 group-hover:opacity-100 transition-all duration-500 delay-100 h-0 group-hover:h-auto overflow-hidden leading-relaxed">
                       {{ industry.description }}
                     </p>
                   </div>

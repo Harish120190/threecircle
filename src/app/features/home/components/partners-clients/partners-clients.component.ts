@@ -6,18 +6,25 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   template: `
-    <section id="clients" class="py-20 bg-white">
-      <div class="container mx-auto px-4 md:px-6">
+    <section id="clients" class="py-24 bg-white relative overflow-hidden">
+      <!-- Decorative Elements -->
+      <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/connected.png')] opacity-5 z-0"></div>
+
+      <div class="container mx-auto px-4 md:px-8 relative z-10 w-full max-w-7xl">
         <!-- Business Partners -->
-        <div class="mb-20">
+        <div class="mb-24">
           <div class="text-center mb-12">
-            <h4 class="text-primary font-bold uppercase tracking-wider mb-2">Our Network</h4>
-            <h2 class="text-3xl md:text-4xl font-bold text-secondary">Business Partners</h2>
+            <div class="flex items-center justify-center gap-3 mb-4">
+               <div class="w-10 h-1 bg-gradient-to-r from-primary to-orange-500 rounded-full"></div>
+               <span class="font-bold uppercase tracking-[0.2em] text-sm text-primary">Our Network</span>
+               <div class="w-10 h-1 bg-gradient-to-l from-primary to-orange-500 rounded-full"></div>
+            </div>
+            <h2 class="text-3xl md:text-4xl font-bold text-slate-900 font-heading">Business <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-orange-500">Partners</span></h2>
           </div>
-          <div class="flex flex-wrap justify-center gap-12 items-center grayscale hover:grayscale-0 transition-all duration-500">
-            <!-- Placeholders for Partners -->
-            <div *ngFor="let partner of partners" class="text-xl font-bold text-slate-400 border border-slate-200 px-8 py-4 rounded-xl hover:border-primary hover:text-primary transition-all">
-              {{ partner }}
+          <div class="flex flex-wrap justify-center gap-6 items-center">
+            <div *ngFor="let partner of partners" class="group relative px-10 py-5 rounded-2xl bg-white border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+              <div class="absolute inset-0 bg-gradient-to-r from-primary/5 to-orange-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <span class="relative z-10 text-xl font-bold text-slate-400 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-primary group-hover:to-orange-500 transition-colors">{{ partner }}</span>
             </div>
           </div>
         </div>
@@ -25,14 +32,18 @@ import { CommonModule } from '@angular/common';
         <!-- Clients -->
         <div>
           <div class="text-center mb-12">
-            <h4 class="text-primary font-bold uppercase tracking-wider mb-2">Trusted By</h4>
-            <h2 class="text-3xl md:text-4xl font-bold text-secondary">Our Esteemed Clients</h2>
+            <div class="flex items-center justify-center gap-3 mb-4">
+               <div class="w-10 h-1 bg-gradient-to-r from-primary to-orange-500 rounded-full"></div>
+               <span class="font-bold uppercase tracking-[0.2em] text-sm text-primary">Trusted By</span>
+               <div class="w-10 h-1 bg-gradient-to-l from-primary to-orange-500 rounded-full"></div>
+            </div>
+            <h2 class="text-3xl md:text-4xl font-bold text-slate-900 font-heading">Our Esteemed <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-orange-500">Clients</span></h2>
           </div>
           
-          <!-- Marquee / Grid for Clients -->
+          <!-- Grid for Clients -->
           <div class="relative overflow-hidden group">
-            <div class="flex flex-wrap justify-center gap-x-12 gap-y-8">
-               <div *ngFor="let client of clients" class="flex items-center justify-center w-32 h-20 bg-slate-50 rounded-lg p-4 hover:shadow-md transition-shadow">
+            <div class="flex flex-wrap justify-center gap-4">
+               <div *ngFor="let client of clients" class="flex items-center justify-center w-36 h-20 bg-slate-50 border border-slate-100 rounded-xl p-4 hover:shadow-lg hover:border-primary/30 transition-all duration-300 transform hover:-translate-y-1">
                  <span class="text-sm font-bold text-slate-600 text-center">{{ client }}</span>
                </div>
             </div>

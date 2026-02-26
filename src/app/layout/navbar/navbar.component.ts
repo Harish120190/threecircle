@@ -40,7 +40,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 
           <!-- CTA Buttons -->
           <div class="hidden lg:flex items-center gap-0">
-             <a href="#contact" class="btn bg-primary text-white border-none hover:bg-orange-600 h-20 px-8 flex items-center font-bold text-sm tracking-wider uppercase">
+             <a href="#contact" class="btn bg-primary text-white border-none hover:bg-orange-600 h-10 px-6 rounded-full flex items-center font-bold text-sm tracking-wider uppercase shadow-md shadow-primary/30 transition-transform hover:-translate-y-0.5">
                Contact Us
              </a>
           </div>

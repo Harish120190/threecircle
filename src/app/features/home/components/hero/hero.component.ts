@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-hero',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   template: `
     <section class="relative h-[90vh] w-full flex items-center overflow-hidden bg-slate-900">
       <!-- Background Image -->
@@ -20,8 +21,8 @@ import { CommonModule } from '@angular/common';
       <div class="absolute inset-0 bg-gradient-to-r from-secondary via-secondary/80 to-transparent z-10"></div>
 
       <!-- Content -->
-      <div class="relative z-20 container mx-auto px-4 md:px-8 pt-20">
-        <div class="max-w-3xl animate-fade-in-up">
+      <div class="relative z-40 container mx-auto px-4 md:px-8 pt-10 pb-32 flex flex-col justify-center h-full">
+        <div class="max-w-3xl animate-fade-in-up mt-12 md:mt-0">
           <div class="flex items-center gap-2 mb-6">
             <div class="w-12 h-1 bg-primary"></div>
             <span class="text-primary font-bold tracking-[0.2em] uppercase text-sm">Building Tomorrow</span>
@@ -36,12 +37,12 @@ import { CommonModule } from '@angular/common';
             Empowering organizations in Oman & MENA with world-class recruitment, consultancy, and training services tailored for the future.
           </p>
           
-          <div class="flex flex-col sm:flex-row gap-0">
-            <a href="#services" class="btn btn-primary">
-              Our Services
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a routerLink="/careers" class="bg-gradient-to-r from-primary to-orange-500 text-white font-bold px-8 py-4 text-lg rounded-xl shadow-lg shadow-primary/30 flex items-center justify-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+              <i class="fas fa-briefcase mr-3 text-xl"></i> Apply for a Job
             </a>
-            <a href="#about" class="btn btn-outline border-l-0 sm:border-l-0">
-              Discover More
+            <a href="#services" class="border-2 border-white/50 text-white hover:bg-white hover:text-slate-900 font-bold px-8 py-4 text-lg rounded-xl flex items-center justify-center transition-all duration-300 backdrop-blur-sm">
+              Our Services
             </a>
           </div>
         </div>

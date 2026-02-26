@@ -6,24 +6,38 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   template: `
-    <section class="py-20 relative bg-secondary overflow-hidden">
+    <section class="py-24 relative bg-slate-900 overflow-hidden">
       <!-- Background Pattern -->
-      <div class="absolute inset-0 opacity-10">
-        <div class="absolute right-0 top-0 w-[500px] h-[500px] border-[50px] border-white rounded-full translate-x-1/2 -translate-y-1/2"></div>
-        <div class="absolute left-0 bottom-0 w-[300px] h-[300px] border-[30px] border-primary rounded-full -translate-x-1/2 translate-y-1/2"></div>
+      <div class="absolute inset-0 opacity-20">
+        <div class="absolute right-0 top-0 w-[600px] h-[600px] bg-gradient-to-bl from-primary/30 to-transparent rounded-full blur-3xl translate-x-1/2 -translate-y-1/2"></div>
+        <div class="absolute left-0 bottom-0 w-[500px] h-[500px] bg-gradient-to-tr from-orange-500/20 to-transparent rounded-full blur-3xl -translate-x-1/2 translate-y-1/2"></div>
       </div>
 
-      <div class="container mx-auto px-4 md:px-6 relative z-10">
-        <div class="text-center mb-16">
-           <h4 class="text-primary font-bold uppercase tracking-wider mb-2">Why Choose Us</h4>
-           <h2 class="text-3xl md:text-4xl font-bold text-white">Our Core Competencies</h2>
+      <div class="container mx-auto px-4 md:px-8 relative z-10">
+        <div class="text-center mb-16 max-w-3xl mx-auto">
+           <div class="flex items-center justify-center gap-3 mb-4">
+               <div class="w-10 h-1 bg-gradient-to-r from-primary to-orange-500 rounded-full"></div>
+               <span class="font-bold uppercase tracking-[0.2em] text-sm text-primary">Why Choose Us</span>
+               <div class="w-10 h-1 bg-gradient-to-l from-primary to-orange-500 rounded-full"></div>
+           </div>
+           <h2 class="text-4xl md:text-5xl font-bold text-white font-heading mb-6">
+             Our Core <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-orange-500">Competencies</span>
+           </h2>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <div *ngFor="let item of competencies" class="bg-white/5 backdrop-blur-sm p-8 rounded-2xl border border-white/10 hover:border-primary/50 transition-colors group">
-            <h3 class="text-xl font-bold text-white mb-4 group-hover:text-primary transition-colors">{{ item.title }}</h3>
-            <p class="text-slate-400 text-sm leading-relaxed">{{ item.description }}</p>
-            <div class="w-12 h-1 bg-primary mt-6 rounded-full opacity-50 group-hover:opacity-100 transition-opacity"></div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div *ngFor="let item of competencies; let i = index" class="relative group">
+            <!-- Glow Effect -->
+            <div class="absolute inset-0 bg-gradient-to-br from-primary to-orange-500 rounded-2xl opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500 pointer-events-none -z-10"></div>
+            
+            <!-- Card -->
+            <div class="bg-slate-800/50 backdrop-blur-xl p-8 rounded-2xl border border-white/10 hover:border-primary/30 transition-all duration-500 group-hover:-translate-y-2 h-full flex flex-col items-start relative z-10">
+              <div class="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-primary text-xl mb-6 font-bold font-heading border border-white/10 group-hover:bg-gradient-to-br group-hover:from-primary group-hover:to-orange-500 group-hover:text-white transition-all duration-500">
+                0{{ i + 1 }}
+              </div>
+              <h3 class="text-xl font-bold text-white mb-4 group-hover:text-primary transition-colors font-heading">{{ item.title }}</h3>
+              <p class="text-slate-400 text-sm leading-relaxed flex-grow">{{ item.description }}</p>
+            </div>
           </div>
         </div>
       </div>

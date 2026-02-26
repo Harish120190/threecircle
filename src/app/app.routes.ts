@@ -23,5 +23,9 @@ export const routes: Routes = [
         path: 'careers',
         loadComponent: () => import('./features/careers/careers.component').then(m => m.CareersComponent)
     },
+    {
+        path: 'admin/careers',
+        loadComponent: () => import('./features/admin/admin-careers.component').then(m => m.AdminCareersComponent)
+    },
     { path: '**', redirectTo: '' }
 ];
